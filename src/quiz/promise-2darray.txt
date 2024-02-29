@@ -1,1 +1,9 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+In the provided code, the sum2DArray function is defined to calculate the sum of a two-dimensional array. It returns a Promise that resolves with the sum if the input is a valid array and rejects with an error message otherwise. Within the Promise constructor, there are log statements indicating the flow of execution, including when the function is called, when it resolves or rejects, and when it returns.
+
+When the code executes, the first operation is the creation of a 2D array named array2D. Two promises, sumPromise1 and sumPromise2, are then created by invoking sum2DArray with array2D and a string 'array2D' respectively. Each promise handles its resolution or rejection using then and catch methods, with corresponding logging for success and failure.
+
+Finally, a call to Promise.any is made with an array containing sumPromise1 and sumPromise2. This method resolves as soon as any of the promises in the array is fulfilled. Upon resolution, it logs the URL and status of the resolved promise. If all promises in the array reject, it catches the error and logs a failure message.
+
+The order of messages logged would typically follow the sequence of operations as described within the function and the code flow. This understanding of message order assists in debugging and tracking the execution of asynchronous code, ensuring the program operates as expected and errors are handled appropriately.
