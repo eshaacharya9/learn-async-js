@@ -27,7 +27,7 @@ const aliceTumbling = [
   //           })
   //   });
 
-  //Promise chain  
+  // //Promise chain  
   // alice1.animate(aliceTumbling, aliceTiming).finished  
   //   .then(() => {
   //       return alice2
@@ -53,3 +53,7 @@ const aliceTumbling = [
     }
 
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    animateAlice();
+  });
