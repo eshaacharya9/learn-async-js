@@ -29,24 +29,25 @@ for(let x = 0; x<array2D.length;x++) {
 
 
 async function calculateSum() {
+    const rowSumPromises = [];
+    for(let x =0 ;x<array2D.length;x++) {
+        rowSumPromises.push(sumOfARow(array2D,x));
+    }
 
     try {
-        const rowSums=  await Promise.all(rowSumPromises)
-        .then((rowSums) => {
-            let sum = 0;
-            rowSums.forEach(rowSum => {
-                sum+=rowSum;
-            });
-            console.log(`Sum = ${sum}`);
-        })
-        .catch((error) => {
-            console.error(`Error Msg: ${error}`);
+        const rowSums=  await Promise.all(rowSumPromises);
+        let sum = 0;
+        rowSums.forEach(rowSum => {
+            sum+=rowSum;
         });
+        console.log(`Sum=${sum}`);
+        return  'done';
     }
     catch (error) {
-        console.log();
+        console.log(`Error Msg: ${error}`);
         return 'failed';
     }
+    
 }
 
 calculateSum().then((status) => console.log(status));
